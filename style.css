@@ -1,0 +1,27 @@
+.btn-success{
+color: red !important;
+background-color: aqua !important;
+}
+.btn-danger{
+    color: blue;
+    background-color: orange;
+}
+.btn-warning{
+    color: wheat;
+    background-color: coral;
+}
+.text-primary{
+    color: tomato;
+    
+}
+body{
+    color: blueviolet;
+    background-color: cadetblue !important;
+    background-image: url(https://ak.picdn.net/shutterstock/videos/994285/thumb/1.jpg);
+
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+    width: 70%;
+       height: 70%;
+}
