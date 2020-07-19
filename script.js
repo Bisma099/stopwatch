@@ -1,60 +1,55 @@
-var display = document.getElementById('timer');
-var secs = 0;
-var mins = 0;
-var hrs  = 0;
-var h = "";
-var m = "";
-var s = "";
-var timer;
+window.onload = function(){
 
-function countTimer(){
-	secs++;
-	
-	if(secs >= 60){
-		secs = 0;
-		mins++;
-		if(mins >= 60){
-			mins = 0;
-			hrs++;
-		}
-	}
-	
-	h = hrs ? hrs > 9 ? hrs : "0" + hrs : "00";
-	m = mins ? mins > 9 ? mins : "0" + mins : "00";
-	s = secs > 9 ? secs : "0" + secs;
-	
-	display.innerHTML = h+":"+m+":"+s+"s";
-	
-	timerDuration();
-}
+    var seconds = 00;
+    var tens = 00;
 
-function timerDuration(){
-	if(hrs != 99){
-		timer = setTimeout(countTimer, 100);
-	}
-	
-}
+    var appendTens = document.getElementById("tens");
+    var appendSeconds = document.getElementById("seconds");
+    var buttonStart = this.document.getElementById("button-start");
+    var buttonStop = this.document.getElementById("button-stop");
+    var buttonReset = this.document.getElementById("button-reset");
 
-function startTimer(btn){
-	btn.setAttribute('disabled', 'disabled');
-	timerDuration();
-	
-}
+    var Interval;
 
+    function startTimer(){
+        tens++;
+        //console.log(tens);
+        if(tens < 9){
+            appendTens.innerHTML = "0" + tens;
+        }
+        if(tens > 9){
+            appendTens.innerHTML = tens;
+        }
+        if(tens > 99){
+            seconds++;
+            console.log(seconds);
+            appendSeconds.innerHTML = "0" + seconds;
+            tens = 0;
+            appendTens.innerHTML = "0" + tens;
+        }
+        if(seconds > 9){
+            appendSeconds.innerHTML = seconds;
+        }
+    }
+    /*Button to Start Timer*/
+    buttonStart.onclick = function(){
+        clearInterval(Interval);
+        Interval = setInterval(startTimer, 10);
+    }
 
-function stopTimer(){
-	document.getElementsByClassName('btn-success')[0].removeAttribute('disabled');
-	clearTimeout(timer);
-}
+    /*Button to Stop Timer*/
+    buttonStop.onclick = function(){
+        clearInterval(Interval);
+    }
 
-function resetTimer(){
-	document.getElementsByClassName('btn-success')[0].removeAttribute('disabled');
-	clearTimeout(timer);
-	display.innerHTML = "00:00:00s";
-	secs = 0; 
-	mins = 0; 
-	hrs = 0;
-	h = "";
-	m = "";
-	s = "";
+    /*Button to Resst Timer*/
+    buttonReset.onclick = function(){
+        clearInterval(Interval);
+        tens = "00";
+        seconds = "00";
+        appendTens.innerHTML = tens;
+        appendSeconds.innerHTML = seconds;
+    }
+
+           
 }
