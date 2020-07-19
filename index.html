@@ -1,24 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-		<link rel="stylesheet" href="style.css">
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop watch (ss:tt)</title>
+    <link rel="stylesheet" href="stop.css">
+</head>
 <body>
-	<div class="col-md-3"></div>
-	<div class="col-md-6 well">
-		<h2 class="text-primary"><b> Simple Stopwatch</b></h2>
-		<hr style="border-top:1px dotted black;"/>
-		<center><h1 id="timer" style="font-size:72px;">00:00:00</h1></center>
-		<br />
-		<div style="text-align:center;">
-			<button class="btn btn-success" onclick="startTimer(this)">START</button>
-			<button class="btn btn-danger" onclick="stopTimer()">STOP</button>
-			<button class="btn btn-warning" onclick="resetTimer()">RESET</button>
-		</div>
-	</div>
-	
-<script src="js/script.js"></script>
+    <div class="container">
+        <h2><b> Simple Stop Watch </b></h2>
+        <p>
+            <span id="seconds">00</span><span class="dots">:</span><span id="tens">00</span>
+        </p>
+        <button id="button-start">Start</button>
+        <button id="button-stop">Stop</button>
+        <button id="button-reset">Resst</button>
+    </div>
+    <script src="./script.js"></script>
 </body>
 </html>
